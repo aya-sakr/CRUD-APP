@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <h5 class="card-header bg-success">Epolyee List</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <table class="table table-bordered">
+               <thead>
+                <tr>
+                  <th scope="col">Sr No</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Contact No</th>
+                  <th scope="col">Email</th>
+                </tr>
+               </thead>
+              </table>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <h5 class="card-header bg-success">New Epolyee</h5>
+        <div class="card-body">
+        <form [formGroup]="empolyeeForm">
+          <div class="row">
+            <div class="col-12">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control"  name="name" required  formControlName="name">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['name'].touched && empolyeeForm.controls['name'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control"  formControlName="email">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['email'].touched && empolyeeForm.controls['email'].errors?.['required']){
+                  <small>this field is required</small>
+                }
+                @else if (empolyeeForm.controls['email'].errors?.['email']) {
+                  <small>Email is invalid</small>
+                }
+
+              </div>
+
+            </div>
+            <div class="col-6">
+              <label for="contact">ContactNo</label>
+              <input type=" text" id="contact" class="form-control" name="contact" required  formControlName="contactNo">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['contactNo'].touched && empolyeeForm.controls['contactNo'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+
+
+
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" required formControlName="city">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['city'].touched && empolyeeForm.controls['city'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+
+
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="state">State</label>
+              <input type="text" id="state"  class="form-control" required formControlName="state">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['state'].touched && empolyeeForm.controls['state'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+
+
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="pincode">PinCode</label>
+              <input type="text" id="pincode" class="form-control"required formControlName="pinCode">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['pinCode'].touched && empolyeeForm.controls['pinCode'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+
+
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="address">Address</label>
+              <input type="text" id="address" class="form-control" required  formControlName="address">
+              <div class="text-danger">
+                @if(empolyeeForm.controls['address'].touched && empolyeeForm.controls['address'].errors?.['required']){
+                  <small >this field is required </small>
+                }
+
+
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+
+
+
+         <div class="row pt-3">
+          <div class="col-6">
+            <button class="btn btn-secondary">Reset</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-success" (click)="onSave()">Save Empolyee</button>
+          </div>
+
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
